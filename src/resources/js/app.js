@@ -1,10 +1,10 @@
 require('./bootstrap');
 
 import { createApp } from 'vue'
-import ExampleComponent from './components/ExampleComponent.vue'
+import LabTechComponent from './components/Lab_tech.vue'
 
 createApp({
     components:{
-        ExampleComponent
+        LabTechComponent
     }
 }).mount('#app')
