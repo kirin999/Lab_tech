@@ -6,30 +6,61 @@
         <div class="split">
             <div class="split-left">
                 <div>
-                    <div>いつでもどこでも</div>
-                    <p>病院の顕微鏡で学習する時間は終わり<br>全国の検体をこのサイトで見て学習</p>
+                    <h2 class="second-title">いつでもどこでも</h2>
+                    <p class="second-title-text">病院の顕微鏡で学習する時間は終わり<br>全国の検体をこのサイトで見て学習</p>
                 </div>
-                <div>
-                    <div class="menu">
-                        <div class="menu-item">TOP</div>
-                        <div class="menu-item">ABOUT</div>
-                        <div class="menu-item">BLOG</div>
-                        <div class="menu-item">CONTACT</div>
-                    </div>
+                <div class="menu">
+                    <!-- <div class="menu">
+                        <div class="menu-item">血液像一覧</div>
+                        <div class="menu-item">沈渣一覧</div>
+                        <div class="menu-item">問題</div>
+                        <div class="menu-item">必ず読んでいただきたい事</div>
+                    </div> -->
+                    <ul class="menu-items">
+                        <p class="menu-items-title">MENU</p>
+                        <li class="menu-item">血液像一覧</li>
+                        <li class="menu-item">沈渣一覧</li>
+                        <li class="menu-item">クイズ</li>
+                        <li class="menu-item">必ず読んでいただきたい事</li>
+                    </ul>
                 </div>
             </div>
             <div class="split-right">
-                <div>
+                <div class="image">
                     <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
                 </div>
-                <div>
+                <div class="text">
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                </div>
+                <div class="image">
                     <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
                 </div>
-                <div>
+                <div class="text">
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                </div>
+                <div class="image">
                     <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
                 </div>
-                <div>
+                <div class="text">
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                </div>
+                <div class="image">
                     <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
+                </div>
+                <div class="text">
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
+                    <p>hello hello test test test</p>
                 </div>
             </div>
         </div>
@@ -74,15 +105,61 @@
     .split-left{
         height: 100%;
         width: 30%;
-        background-color: rgb(196, 213, 37);
+        background-color: rgb(255, 255, 255);
     }
 
     .split-right {
+        width: calc(100% - 30%);
         overflow-x: scroll;
     }
 
-    .split-right div {
-        margin-bottom: 120px;
+    .split-right .image {
+        margin-left: 70px;
+        margin-top: 70px;
+    }
+
+
+    .split-right .image  img{
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5);
+    }
+
+    /* 画像横のテキスト */
+    .text {
+        position:  relative;
+        left:  625px;
+        bottom: 160px;
+    }
+
+    .second-title {
+        margin-top: 30px;
+        margin-left: 45px;
+        font-size: 3em;
+    }
+
+    .second-title-text {
+        position:  relative;
+        left: 50px;
+        bottom: 35px;
+        line-height: 1.5;
+    }
+
+    .menu {
+        position:  relative;
+        left:  10px;
+        top: 200px;
+    }
+
+    .menu ul{
+        list-style: none;
+    }
+
+    .menu ul li{
+        margin-bottom: 6px;
+    }
+
+    .menu-items-title{
+        font-size: 1.5em;
+        font-weight: 700;
     }
 
 </style>
