@@ -10,12 +10,6 @@
                     <p class="second-title-text">病院の顕微鏡で学習する時間は終わり<br>全国の検体をこのサイトで見て学習</p>
                 </div>
                 <div class="menu">
-                    <!-- <div class="menu">
-                        <div class="menu-item">血液像一覧</div>
-                        <div class="menu-item">沈渣一覧</div>
-                        <div class="menu-item">問題</div>
-                        <div class="menu-item">必ず読んでいただきたい事</div>
-                    </div> -->
                     <ul class="menu-items">
                         <p class="menu-items-title">MENU</p>
                         <li class="menu-item">血液像一覧</li>
@@ -26,41 +20,55 @@
                 </div>
             </div>
             <div class="split-right">
-                <div class="image">
-                    <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
+                <div class="image-text">
+                    <div class="image image1">
+                        <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
+                    </div>
+                        <div class="text">
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                        </div>
                 </div>
-                <div class="text">
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
+                <div class="image-text">
+                    <div class="image image1">
+                        <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
+                    </div>
+                    <fade-in-component>
+                        <div class="text">
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                        </div>
+                    </fade-in-component>
                 </div>
-                <div class="image">
-                    <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
+                <div class="image-text">
+                    <div class="image image1">
+                        <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
+                    </div>
+                    <fade-in-component>
+                        <div class="text">
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                        </div>
+                    </fade-in-component>
                 </div>
-                <div class="text">
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
-                </div>
-                <div class="image">
-                    <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
-                </div>
-                <div class="text">
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
-                </div>
-                <div class="image">
-                    <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
-                </div>
-                <div class="text">
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
-                    <p>hello hello test test test</p>
+                <div class="image-text">
+                    <div class="image image1">
+                        <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
+                    </div>
+                    <fade-in-component>
+                        <div class="text">
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                            <p>hello hello test test test</p>
+                        </div>
+                    </fade-in-component>
                 </div>
             </div>
         </div>
@@ -68,6 +76,7 @@
 </template>
 
 <script setup>
+    import fadeInComponent from '../components/Fade_in_component.vue'
     const url = 'localhost:80';
 </script>
 
@@ -123,11 +132,19 @@
         box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5);
     }
 
+    .image-text{
+        display: flex;
+    }
+
+    .image{
+        margin-bottom: 100px;
+    }
+
     /* 画像横のテキスト */
     .text {
         position:  relative;
-        left:  625px;
-        bottom: 160px;
+        left:  30px;
+        top: 210px;
     }
 
     .second-title {
