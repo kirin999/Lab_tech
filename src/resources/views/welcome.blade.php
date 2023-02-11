@@ -22,7 +22,7 @@
     </head>
     <body class="antialiased">
         <div id="app">
-            <Lab-tech-component></Lab-tech-component>
+            <App-component></App-component>
         </div>
     </body>
     <script src="js/app.js"></script>

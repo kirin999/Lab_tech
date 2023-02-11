@@ -76,7 +76,7 @@
 </template>
 
 <script setup>
-    import fadeInComponent from '../components/Fade_in_component.vue'
+    import fadeInComponent from './FadeInComponent.vue'
     const url = 'localhost:80';
 </script>
 

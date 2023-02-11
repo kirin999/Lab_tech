@@ -1,10 +1,9 @@
 require('./bootstrap');
 
 import { createApp } from 'vue'
-import LabTechComponent from './components/Lab_tech.vue'
+import router from './router'
+import App from "./components/App.vue";
 
-createApp({
-    components:{
-        LabTechComponent
-    }
-}).mount('#app')
+const app = createApp(App)
+app.use(router)
+app.mount("#app")
