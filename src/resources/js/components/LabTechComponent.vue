@@ -14,7 +14,7 @@
                         <router-view>
                             <p class="menu-items-title">MENU</p>
                             <li class="menu-item"><router-link v-bind:to="{ path : '/bood'}">血液像一覧</router-link></li>
-                            <li class="menu-item">沈渣一覧</li>
+                            <li class="menu-item">沈渣一覧(Coming Soon)</li>
                             <li class="menu-item">クイズ</li>
                             <li class="menu-item"><router-link v-bind:to="{ path : '/must/read'}">必ず読んでいただきたい事</router-link></li>
                         </router-view>
