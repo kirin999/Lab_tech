@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-
 import LabTech from './components/LabTechComponent.vue'
 import Bood from './components/BloodListComponent.vue'
+import MustRead from './components/MustReadComponent.vue'
 
 
 const routes = [
@@ -15,6 +15,11 @@ const routes = [
       path: '/bood',
       name: 'Bood',
       component: Bood,
+    },
+    {
+      path: '/must/read',
+      name: 'MustRead',
+      component: MustRead,
     }
   ]
 
