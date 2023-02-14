@@ -1,15 +1,18 @@
 <template>
     <search-bar-component @search="handleSearch"></search-bar-component>
-    <table>
-        <tr v-for="user in filteredUsers" :key="user.id">
-            <td v-text="user.id"></td>
-            <td v-text="user.name"></td>
-            <td v-text="user.email"></td>
-            <td>
-                <img :src="user.image" width="450" height="300">
-            </td>
-        </tr>
-    </table>
+    <div class="blood-list">
+        <div class="blood-list-box" v-for="user in filteredUsers" :key="user.id">
+            <div>
+                <div v-text="user.cell"></div>
+                <img :src="user.image" width="400" height="250">
+            </div>
+            <div>
+                <p>{{ user.hospital }}</p>
+                <div>氏名：{{ user.name }}技師</div>
+                <div>資格：{{ user.qualification }}</div>
+            </div>
+        </div>
+    </div>
 </template>
 
 
@@ -23,33 +26,80 @@ export default {
       searchTerm: "",
       users: [
                 {
-                    id: 1,
+                    cell: '好中球',
+                    hospital: '順天堂大学病院',
                     name: '鈴木太郎',
-                    email: 'suzukitaro@example.com',
+                    qualification: '血液1級',
                     image: '../../images/neutrophil.jpg'
                 },
                 {
-                    id: 2,
+                    cell: '好中球',
+                    hospital: '国立がん研究センター',
                     name: '佐藤二郎',
-                    email: 'satoujiro@example.com',
+                    qualification: '血液認定',
                     image: '../../images/neutrophil.jpg'
                 },
                 {
-                    id: 3,
+                    cell: '好酸球',
+                    hospital: '順天堂大学病院',
                     name: '田中三郎',
-                    email: 'tanakasaburo@example.com',
+                    qualification: '血液1級',
                     image: '../../images/neutrophil.jpg'
                 },
                 {
-                    id: 4,
+                    cell: '好塩基球',
+                    hospital: '順天堂大学病院',
                     name: '山本四郎',
-                    email: 'yamamotoshiro@example.com',
+                    qualification: '血液認定',
                     image: '../../images/neutrophil.jpg'
                 },
                 {
-                    id: 5,
+                    cell: 'リンパ級',
+                    hospital: '順天堂大学病院',
                     name: '高橋五郎',
-                    email: 'takahashigoro@example.com',
+                    qualification: '血液1級',
+                    image: '../../images/neutrophil.jpg'
+                },
+                {
+                    cell: 'リンパ級',
+                    hospital: '順天堂大学病院',
+                    name: '高橋五郎',
+                    qualification: '血液1級',
+                    image: '../../images/neutrophil.jpg'
+                },
+                {
+                    cell: 'リンパ級',
+                    hospital: '順天堂大学病院',
+                    name: '高橋五郎',
+                    qualification: '血液1級',
+                    image: '../../images/neutrophil.jpg'
+                },
+                {
+                    cell: 'リンパ級',
+                    hospital: '順天堂大学病院',
+                    name: '高橋五郎',
+                    qualification: '血液1級',
+                    image: '../../images/neutrophil.jpg'
+                },
+                {
+                    cell: 'リンパ級',
+                    hospital: '順天堂大学病院',
+                    name: '高橋五郎',
+                    qualification: '血液1級',
+                    image: '../../images/neutrophil.jpg'
+                },
+                {
+                    cell: 'リンパ級',
+                    hospital: '順天堂大学病院',
+                    name: '高橋五郎',
+                    qualification: '血液1級',
+                    image: '../../images/neutrophil.jpg'
+                },
+                {
+                    cell: 'リンパ級',
+                    hospital: '順天堂大学病院',
+                    name: '高橋五郎',
+                    qualification: '血液1級',
                     image: '../../images/neutrophil.jpg'
                 },
             ]
@@ -71,7 +121,9 @@ export default {
                     var user = this.users[i];
                     console.log(user);
                     if(user.name.indexOf(this.searchTerm) !== -1 ||
-                        user.email.indexOf(this.searchTerm) !== -1) {
+                        user.qualification.indexOf(this.searchTerm) !== -1 ||
+                        user.cell.indexOf(this.searchTerm) !== -1)   
+                    {
                         users.push(user);
                         console.log(users);
                     }
@@ -84,3 +136,25 @@ export default {
 };
 
 </script>
+
+
+
+<style>
+
+
+.blood-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 20px 0 20px;
+}
+
+
+.blood-list-box {
+    margin-top: 100px;
+}
+
+/* .blood-list-box img{
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5);
+} */
+</style>
