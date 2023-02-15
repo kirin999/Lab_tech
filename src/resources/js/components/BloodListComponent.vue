@@ -4,7 +4,7 @@
         <div class="blood-list-box" v-for="user in filteredUsers" :key="user.id">
             <div>
                 <div v-text="user.cell"></div>
-                <img :src="user.image" width="400" height="250">
+                <router-link v-bind:to="{ name : 'BoodDetail', params:{id : user.id}}"><img :src="user.image" width="400" height="250"></router-link>
             </div>
             <div>
                 <p>{{ user.hospital }}</p>
@@ -26,6 +26,7 @@ export default {
       searchTerm: "",
       users: [
                 {
+                    id: 1,
                     cell: '好中球',
                     hospital: '順天堂大学病院',
                     name: '鈴木太郎',
@@ -33,6 +34,7 @@ export default {
                     image: '../../images/neutrophil.jpg'
                 },
                 {
+                    id: 2,
                     cell: '好中球',
                     hospital: '国立がん研究センター',
                     name: '佐藤二郎',
@@ -40,6 +42,7 @@ export default {
                     image: '../../images/neutrophil.jpg'
                 },
                 {
+                    id: 3,
                     cell: '好酸球',
                     hospital: '順天堂大学病院',
                     name: '田中三郎',
@@ -47,6 +50,7 @@ export default {
                     image: '../../images/neutrophil.jpg'
                 },
                 {
+                    id: 4,
                     cell: '好塩基球',
                     hospital: '順天堂大学病院',
                     name: '山本四郎',
@@ -54,6 +58,7 @@ export default {
                     image: '../../images/neutrophil.jpg'
                 },
                 {
+                    id: 5,
                     cell: 'リンパ級',
                     hospital: '順天堂大学病院',
                     name: '高橋五郎',
@@ -61,6 +66,7 @@ export default {
                     image: '../../images/neutrophil.jpg'
                 },
                 {
+                    id: 6,
                     cell: 'リンパ級',
                     hospital: '順天堂大学病院',
                     name: '高橋五郎',
@@ -68,6 +74,7 @@ export default {
                     image: '../../images/neutrophil.jpg'
                 },
                 {
+                    id: 7,
                     cell: 'リンパ級',
                     hospital: '順天堂大学病院',
                     name: '高橋五郎',
@@ -75,6 +82,7 @@ export default {
                     image: '../../images/neutrophil.jpg'
                 },
                 {
+                    id: 8,
                     cell: 'リンパ級',
                     hospital: '順天堂大学病院',
                     name: '高橋五郎',
@@ -82,6 +90,7 @@ export default {
                     image: '../../images/neutrophil.jpg'
                 },
                 {
+                    id: 9,
                     cell: 'リンパ級',
                     hospital: '順天堂大学病院',
                     name: '高橋五郎',
@@ -89,6 +98,7 @@ export default {
                     image: '../../images/neutrophil.jpg'
                 },
                 {
+                    id: 10,
                     cell: 'リンパ級',
                     hospital: '順天堂大学病院',
                     name: '高橋五郎',
@@ -96,6 +106,7 @@ export default {
                     image: '../../images/neutrophil.jpg'
                 },
                 {
+                    id: 11,
                     cell: 'リンパ級',
                     hospital: '順天堂大学病院',
                     name: '高橋五郎',
@@ -154,7 +165,7 @@ export default {
     margin-top: 100px;
 }
 
-/* .blood-list-box img{
+.blood-list-box img{
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5);
-} */
+}
 </style>
