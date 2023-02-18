@@ -2,7 +2,18 @@
     <div class="container">
         <div class="left-pane">
             <div class="detail-box">
-                <h2 class="title">好中球<span>(〇〇技師)</span></h2>
+                <h2 class="title">好中球<span @click="showPopupInstructor">(〇〇技師)</span></h2>
+                <div v-if="isInstructorPopupVisible" class="popup-container" ref="popupContainer" :style="{ top: popupTop + 'px', left: popupLeft + 'px' }">
+                    <div class="popup-header" @mousedown="startDragging">
+                            <h2>氏名</h2>
+                            <p>〇〇技師</p>
+                            <h2>勤務地</h2>
+                            <p>順天堂大学病院</p>
+                            <h2>保有資格</h2>
+                            <p>血液1級、血液認定、緊急検査士</p>
+                            <button @click="hidePopupInstructor">閉じる</button>
+                    </div>
+                </div>
                 <p class="feature">◎特徴</p>
                 <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
                 aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
@@ -90,6 +101,7 @@ export default {
   data() {
     return {
       isPopupVisible: false,
+      isInstructorPopupVisible: false,
       popupTitle: 'ポップアップのタイトル',
       popupTop: 10,
       popupLeft: 400,
@@ -104,6 +116,14 @@ export default {
     },
     hidePopup() {
       this.isPopupVisible = false
+    },
+    // ポップアップ講師
+    showPopupInstructor() {
+      console.log("hogehgogege");
+      this.isInstructorPopupVisible = true
+    },
+    hidePopupInstructor() {
+      this.isInstructorPopupVisible = false
     },
     // ポップアップをドラックで移動
     startDragging(event) {
@@ -147,7 +167,7 @@ export default {
 } */
 
 .detail-box{
-    margin-left: 100px;
+    margin-left: 150px;
 }
 
 .right-pane {
@@ -189,6 +209,7 @@ export default {
 
 .title span{
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .image-number span{
