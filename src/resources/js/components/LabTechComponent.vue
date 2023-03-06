@@ -88,7 +88,6 @@
 
     .main {
         height:100vh;
-        background-color: aqua;
     }
 
     /* ヘッダー */
@@ -97,7 +96,6 @@
         justify-content: flex-end;
         width: 100%;
         height: 70px;
-        background-color: rgb(255, 255, 255);
         align-items: center;
     }
 
@@ -109,14 +107,12 @@
     .split{
         display: flex;
         height: calc(100% - 70px);
-        background-color: rgb(255, 255, 255);
     }
 
     /* ボディ左側 */
     .split-left{
         height: 100%;
         width: 30%;
-        background-color: rgb(255, 255, 255);
     }
 
     .split-right {
