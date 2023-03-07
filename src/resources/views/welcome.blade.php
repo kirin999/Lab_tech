@@ -21,7 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <div id="app">
+        <div id="lab-tech">
             <App-component></App-component>
         </div>
     </body>
