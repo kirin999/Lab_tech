@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+bbbbbbbbb
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -8,7 +8,11 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    @isset($authgroup)
+                    <form method="POST" action="{{ url("login/$authgroup") }}">
+                    @else
                     <form method="POST" action="{{ route('login') }}">
+                    @endisset
                         @csrf
 
                         <div class="row mb-3">

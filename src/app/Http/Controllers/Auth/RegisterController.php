@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -39,6 +41,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:admin');
     }
 
     /**
@@ -47,13 +50,19 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function adminValidator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+    }
+
+    // 管理者新規登録画面
+    public function showAdminRegisterForm()
+    {
+        return view('auth.register', ['authgroup' => 'admin']);
     }
 
     /**
@@ -68,6 +77,37 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+         ]);
+    }
+
+    public function registerAdmin(Request $request)
+    {
+        $this->adminValidator($request->all())->validate();
+
+        event(new Registered($user = $this->createAdmin($request->all())));
+
+        Auth::guard('admin')->login($user);
+
+        if ($response = $this->registeredAdmin($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+                    ? new JsonResponse([], 201)
+                    : redirect(route('admin-home'));
+    }
+
+    protected function createAdmin(array $data)
+    {
+        return Admin::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
         ]);
+    }
+
+    protected function registeredAdmin(Request $request, $user)
+    {
+        //
     }
 }

@@ -37,19 +37,33 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest
+                        @if(!Auth::check() && (!isset($authgroup) || !Auth::guard($authgroup)->check()))
                             @if (Route::has('login'))
                                 <li class="nav-item">
+                                    @isset($authgroup)
+                                    <a class="nav-link" href="{{ url("login/$authgroup") }}">{{ __('Login') }}</a>
+                                    @else
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    @endisset
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
+                            @isset($authgroup)
+                            @if (Route::has("$authgroup-register"))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route("$authgroup-register") }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                            @else
+                            @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
+                            @endif
+                            @endisset
                             @endif
                         @else
                             <li class="nav-item dropdown">
@@ -58,13 +72,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="{{ route('admin.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
