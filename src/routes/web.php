@@ -19,8 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/admin/login', [App\Http\Controllers\AdminController::class, 'showLoginForm'])->name('admin.login');
-Route::post('/admin/login', [App\Http\Controllers\AdminController::class, 'login'])->name('admin.login.submit');
-Route::post('/admin/logout', [App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
-
+Route::view('/admin/login', 'admin/login');
+Route::post('/admin/login', [App\Http\Controllers\Admin\LoginController::class, 'login']);
+Route::post('/admin/logout', [App\Http\Controllers\Admin\LoginController::class,'logout']);
+Route::view('/admin/register', 'admin/register');
+Route::post('/admin/register', [App\Http\Controllers\Admin\RegisterController::class, 'register']);
+Route::view('/admin/home', 'admin/home')->middleware('auth:admin');
