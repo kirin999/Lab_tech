@@ -13,15 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Lab_tech本画面
 Route::get('/', function () {
     return view('welcome');
 });
 
+// ユーザー画面(現在はユーザー機能は実装していない)
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::view('/admin/login', 'admin/login')->middleware('guest:admin');
-Route::post('/admin/login', [App\Http\Controllers\Admin\LoginController::class, 'login']);
-Route::post('/admin/logout', [App\Http\Controllers\Admin\LoginController::class,'logout']);
-Route::view('/admin/register', 'admin/register');
-Route::post('/admin/register', [App\Http\Controllers\Admin\RegisterController::class, 'register']);
-Route::view('/admin/home', 'admin/home')->middleware('auth:admin');
+
+// 管理者画面
+Route::prefix('/admin')->group(function () {
+    Route::view('/login', 'admin/login')->middleware('guest:admin');
+    Route::post('/login', [App\Http\Controllers\Admin\LoginController::class, 'login']);
+    Route::post('/logout', [App\Http\Controllers\Admin\LoginController::class,'logout']);
+    Route::view('/register', 'admin/register');
+    Route::post('/register', [App\Http\Controllers\Admin\RegisterController::class, 'register']);
+    Route::view('/home', 'admin/home')->middleware('auth:admin');
+});
