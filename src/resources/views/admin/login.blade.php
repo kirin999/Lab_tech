@@ -59,7 +59,7 @@
 
                                 @if (Route::has('admin.password.request'))
                                     <a class="btn btn-link" href="{{ url('admin/password/reset') }}">
-                                        パスワードを忘れた方はこちらaaaaa
+                                        パスワードを忘れた方はこちら
                                     </a>
                                 @endif
                             </div>

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 // Lab_tech本画面
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // ユーザー画面(現在はユーザー機能は実装していない)
 // Auth::routes();
