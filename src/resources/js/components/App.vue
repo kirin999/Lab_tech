@@ -5,7 +5,8 @@
 </template>
 
 
-<scrpt></scrpt>
+<script>
+</script>
 
 
 <style>

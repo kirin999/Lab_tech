@@ -24,7 +24,7 @@
             <div class="split-right">
                 <div class="image-text">
                     <div class="image image1">
-                        <a v-bind:href="url" class="image"><img src="../../images/neutrophil.jpg" width="450" height="300"></a>
+                        <a v-bind:href="url" class="image"><img :src="imageUrl" v-if="imageUrl" width="450" height="300"></a>
                     </div>
                         <div class="text">
                             <p>hello hello test test test</p>
@@ -77,9 +77,26 @@
     </div>
 </template>
 
-<script setup>
+<script>
     import fadeInComponent from './FadeInComponent.vue'
+    import { ref, onMounted } from 'vue'
+    import { getImageFromS3 } from '../hooks/useS3Image'
     const url = 'localhost:80';
+
+    export default{
+        setup(){
+            const imageUrl = ref(null)
+            
+            onMounted(async () => {
+                imageUrl.value = await getImageFromS3('lab-tech', 'man-6631394_1920.png')
+            })
+
+            return{
+                imageUrl,
+                fadeInComponent
+            }
+        }
+    }
 </script>
 
 
