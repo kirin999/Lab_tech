@@ -3,6 +3,7 @@
         <header class="main-header">
             <div v-bind:class="header_logo"><a v-bind:href="url" class="header-logo-link"><img src="../../images/lab_tech.png" width="70" height="50"></a></div>
         </header>
+        <v-alert text="Vuetifyを導入" type="success"></v-alert>
         <div class="split">
             <div class="split-left">
                 <div>
